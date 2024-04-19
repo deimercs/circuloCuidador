@@ -1,0 +1,99 @@
+<html>
+<link rel="stylesheet" href="style.css">
+
+
+<body>
+
+    <div class="header">
+        <h1>CÍRCULO DE CUIDADOS. RED
+            COMUNITARIA:
+            INICIAL, PROCESO Y FINAL</h1>
+        <p>(Se rellena en la valoración inicial y a medida que se completa
+            y se añade red, sea externa, interna o comunidad). Con
+            identificativo de la valoración en la que aparece.</p>
+      </div>
+</body>
+<div class="container">
+    <div class="circle circle-1">
+      <div class="circle circle-2">
+        <div class="circle circle-3">
+            <div class="circle circle-4"> Persona <br> Beneficiaria</div>          
+        </div>
+        Cuidadora<br>principal
+      </div>
+      Coordinadora de la<br>red comunitaria
+    </div>
+    <div class="curved-text" id="curvedText1"></div>
+  </div>
+
+  <p class="subtitle">Tres círculos principales: persona beneficiaria, cuidadora principal, coordinadora de la red comunitaria.</p>
+  
+  <div class="text">
+    <p><strong>1. Red Interna:</strong> Familiares: hijos e hijas, sobrinos y sobrinas, primos y primas, hermanos y hermanas y amigos más cercanos.</p>
+    <p><strong>2. Red Externa:</strong> Poco vinculadas pero que conocen a la persona por cercanía: Vecinos, amigos lejanos, lugares que frecuenta como farmacia, panadería, tienda.</p>
+    <p><strong>3. Comunidad:</strong> Voluntarios, profesionales: médico de familia, trabajador social, asesor, etc.</p>
+  </div>
+
+  <div class="text">
+    <div class="item">
+      <label>
+        <input type="checkbox" class="checkbox">
+        <strong>1. Red Interna:</strong> Familiares: hijos e hijas, sobrinos y sobrinas, primos y primas, hermanos y hermanas y amigos más cercanos.
+      </label>
+      <div class="input-container">
+        <textarea maxlength="100"></textarea>
+        <button class="save-button">Guardar</button>
+      </div>
+    </div>
+    <div class="item">
+      <label>
+        <input type="checkbox" class="checkbox">
+        <strong>2. Red Externa:</strong> Poco vinculadas pero que conocen a la persona por cercanía: Vecinos, amigos lejanos, lugares que frecuenta como farmacia, panadería, tienda.
+      </label>
+      <div class="input-container">
+        <textarea maxlength="100"></textarea>
+        <button class="save-button">Guardar</button>
+      </div>
+    </div>
+    <div class="item">
+      <label>
+        <input type="checkbox" class="checkbox">
+        <strong>3. Comunidad:</strong> Voluntarios, profesionales: médico de familia, trabajador social, asesor, etc.
+      </label>
+      <div class="input-container">
+        <textarea maxlength="100"></textarea>
+        <button class="save-button">Guardar</button>
+      </div>
+    </div>
+  </div>
+
+  <script> document.addEventListener('DOMContentLoaded', function() {
+    const checkboxes = document.querySelectorAll('.checkbox');
+    
+    checkboxes.forEach(function(checkbox) {
+      checkbox.addEventListener('change', function() {
+        const inputContainer = this.parentNode.nextElementSibling;
+        if (this.checked) {
+          inputContainer.style.display = 'block';
+        } else {
+          inputContainer.style.display = 'none';
+        }
+      });
+    });
+    
+    const saveButtons = document.querySelectorAll('.save-button');
+    
+    saveButtons.forEach(function(button) {
+      button.addEventListener('click', function() {
+        const textarea = this.previousElementSibling;
+        console.log('Texto guardado:', textarea.value);
+        // Aquí puedes agregar la lógica para guardar el texto en el servidor o realizar otras acciones
+      });
+    });
+  });</script>
+
+
+  <body>
+    
+  </body>
+  </html>

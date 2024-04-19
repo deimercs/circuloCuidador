@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Círculos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .header h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .header p {
+      font-size: 16px;
+      color: #666;
+    }
+
+    .circle-container {
+      position: relative;
+      width: 500px;
+      height: 500px;
+    }
+
+    .circle-big {
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background-color: #FF9800;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .circle-medium {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background-color: #4CAF50;
+      position: absolute;
+      top: 100px;
+      left: 100px;
+    }
+
+    .circle-small {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background-color: #2196F3;
+      position: absolute;
+      top: 150px;
+      left: 150px;
+    }
+
+    .text-path {
+      fill: white;
+      font-size: 20px;
+    }
+
+    .input-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 180px;
+      gap: 3px;
+    }
+
+    input {
+      padding: 10px;
+      width: 300px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-family: 'Roboto', sans-serif;
+      font-size: 16px;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #2196F3;
+      box-shadow: 0 0 5px rgba(33, 150, 243, 0.5);
+    }
+
+    label {
+      font-weight: bold;
+      margin-bottom: 5px;
+      text-align: center;
+    }
+
+    .description {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>CÍRCULO DE CUIDADOS. RED COMUNITARIA: INICIAL, PROCESO Y FINAL</h1>
+    <p>(Se rellena en la valoración inicial y a medida que se completa y se añade red, sea externa, interna o comunidad). Con identificativo de la valoración en la que aparece.</p>
+  </div>
+  <div class="circle-container">
+    <div class="circle-big">
+      <svg viewBox="0 0 500 500">
+        <path id="circle-path-big" d="M 250 250 m -225 0 a 225 225 0 1 1 450 0 a 225 225 0 1 1 -450 0" fill="none" stroke="white" stroke-width="2" />
+        <text>
+          <textPath xlink:href="#circle-path-big" startOffset="25%" class="text-path" id="text-big"></textPath>
+        </text>
+      </svg>
+    </div>
+    <div class="circle-medium">
+      <svg viewBox="0 0 300 300">
+        <path id="circle-path-medium" d="M 150 150 m -125 0 a 125 125 0 1 1 250 0 a 125 125 0 1 1 -250 0" fill="none" stroke="white" stroke-width="2" />
+        <text>
+          <textPath xlink:href="#circle-path-medium" startOffset="25%" class="text-path" id="text-medium"></textPath>
+        </text>
+      </svg>
+    </div>
+    <div class="circle-small">
+      <svg viewBox="0 0 200 200">
+        <path id="circle-path-small" d="M 100 100 m -75 0 a 75 75 0 1 1 150 0 a 75 75 0 1 1 -150 0" fill="none" stroke="white" stroke-width="2" />
+        <text>
+          <textPath xlink:href="#circle-path-small" startOffset="25%" class="text-path" id="text-small"></textPath>
+        </text>
+      </svg>
+    </div>
+  </div>
+  <p class="description">Tres círculos principales: persona beneficiaria, cuidadora principal, coordinadora de la red comunitaria.</p>
+  <div class="input-container">
+    <label><strong>1. Red Interna:</strong> Familiares: hijos e hijas, sobrinos y sobrinas, primos y primas, hermanos y hermanas y amigos más cercanos.</label>
+    <input type="text" id="input-big" placeholder="Ingresa texto para el círculo grande" />
+    <label><strong>2. Red Externa:</strong> Poco vinculadas pero que conocen a la persona por cercanía: Vecinos, amigos lejanos, lugares que frecuenta como farmacia, panadería, tienda.</label>
+    <input type="text" id="input-medium" placeholder="Ingresa texto para el círculo mediano" />
+    <label><strong>3. Comunidad:</strong> Voluntarios, profesionales: médico de familia, trabajador social, asesor, etc.</label>
+    <input type="text" id="input-small" placeholder="Ingresa texto para el círculo pequeño" />
+  </div>
+
+  <script>
+    const inputBig = document.getElementById('input-big');
+    const inputMedium = document.getElementById('input-medium');
+    const inputSmall = document.getElementById('input-small');
+    const textBig = document.getElementById('text-big');
+    const textMedium = document.getElementById('text-medium');
+    const textSmall = document.getElementById('text-small');
+
+    inputBig.addEventListener('input', () => {
+      textBig.textContent = inputBig.value;
+    });
+
+    inputMedium.addEventListener('input', () => {
+      textMedium.textContent = inputMedium.value;
+    });
+
+    inputSmall.addEventListener('input', () => {
+      textSmall.textContent = inputSmall.value;
+    });
+  </script>
+</body>
+</html>
